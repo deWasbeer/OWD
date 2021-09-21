@@ -12,7 +12,7 @@ from tabulate import tabulate as t
 
 def RNA(D,v,vrated,rho,LC):
     if LC == 0:
-        Ct=16/27.
+        Ct=0.89
         A=pi/4.*D**2
         F=.5*rho*Ct*A*vrated**2
     else:
