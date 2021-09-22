@@ -8,6 +8,11 @@ Created on Tue Sep 21 12:28:38 2021
 
 from math import pi,log10
 from scipy.integrate import quad as q
+# voor deze module moet je tabulate installeren.
+# open anacondaconda powershell prompt vanuit windows start menu.
+# als deze is opgestart typ dan:
+# conda install -c conda-forge tabulate
+# https://anaconda.org/conda-forge/tabulate
 from tabulate import tabulate as t
 
 def RNA(D,v,vrated,rho,LC):
