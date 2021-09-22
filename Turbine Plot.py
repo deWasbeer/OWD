@@ -29,7 +29,7 @@ def weibull(v,A,k):
     return pdf
 
 def energy(v,D,Prated,rho,Cd,vcutin,vcutout,A,k):
-    E=powercurve(v,D,Prated,rho,Cd,vcutin,vcutout)*weibull(v,A,k)*60*24*365/(10**6)
+    E=powercurve(v,D,Prated,rho,Cd,vcutin,vcutout)*weibull(v,A,k)*60*60*24*365/(10**9)
     return E
 
 def windscale(z,Vref,Href,z0):
@@ -68,7 +68,13 @@ def main():
     par1 = host.twinx()
     par2 = host.twinx()
     
-    offset = 60
+    offset = 30
+    
+    new_fixed_axis = par1.get_grid_helper().new_fixed_axis
+    par1.axis["right"] = new_fixed_axis(loc="right",
+                                        axes=par1,
+                                        offset=(0, 0))
+    
     new_fixed_axis = par2.get_grid_helper().new_fixed_axis
     par2.axis["right"] = new_fixed_axis(loc="right",
                                         axes=par2,
