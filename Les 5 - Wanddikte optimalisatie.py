@@ -34,7 +34,7 @@ def inertia(wt,D):
         
 def sigma(wt,D,fx,fz,my):
     r=D/2.
-    sigm=sqrt((fz/area(wt,D)+my*r/inertia(wt,D))**2+3*(fx/area(wt,D)**2))
+    sigm=sqrt((fz/area(wt,D)+my*r/inertia(wt,D))**2+3*((fx/area(wt,D))**2))
     return sigm
         
 def wt_minimizer(wt,D,fx,fz,my,sigm_steel):
@@ -49,7 +49,7 @@ def main():
         fx=float(input('Fx: Kracht parallel aan wind [N] ? '))
         fz=float(input('Fz: Kracht omlaag door gewicht [N] ? '))
         my=float(input('My: Moment om y-as door Fx [Nm] ? '))
-        sigm_yield=input('Vloeispanning van materiaal [N/mm²] ? ')
+        sigm_yield=float(input('Vloeispanning van materiaal [N/mm²] ? '))
         wt=brentq(wt_minimizer,0.0000000001,D/2-.01,args=(D,fx,fz,my,sigm_yield))
         print(int(D*10)/10., 'm')
         print(int(fx*10)/10., 'N')
