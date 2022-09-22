@@ -51,6 +51,8 @@ def main():
     c6=Dmax
     c7=c5
     c8=Hint
+    Htop=Hrna
+    Hbot=Hint
     F=Force(Htop,Hbot,c1,c2,c3,c4,c5,c6,c7,c8)
     print(F)
 main()
