@@ -68,12 +68,12 @@ class wave:
         self.Tpeak_50_year = 1.4 * 11.1 * sqrt(self.H50 / 9.81)
         #self.Uw_50_year = (pi * self.H50 / (self.Tpeak_50_year * sinh(self.wave_number(self.Tpeak_50_year) * self.Hdepth)))
                                               
-        Hred_50_year = 1.32 * self.H50
+        Hred_50_year = 1.86 * self.H50
         self.Tred_50_year = 11.1 * sqrt(Hred_50_year / 9.81)
         self.kred_50_year = self.wave_number(self.Tred_50_year)
         self.Hred_50_year = min(Hred_50_year, self.wave_limit(self.kred_50_year))
         
-        Hmax_1_year = 1.86 * self.H50
+        Hmax_1_year = 1.32 * self.H50
         self.Tmax_1_year = 11.1 * sqrt(Hmax_1_year / 9.81)
         self.kmax_1_year = self.wave_number(self.Tmax_1_year)
         self.Hmax_1_year = min(Hmax_1_year, self.wave_limit(self.kmax_1_year))
