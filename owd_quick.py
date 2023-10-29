@@ -147,36 +147,59 @@ def stress(D,wt,Fx,Fz,My):
     print('sigma_mises '+str(round(sigm_mises2D/1e6))+' MPa')
 
     return sigm_mises2D
+
+def annual():
+
+    P = pi/4 * Drotor**2 * 1.225 * Vwind**3 * 0.89
+
+    cf = 0.5
+
+    time = 60*60*24*365
+
+    E = P * time * cf
+    Es = "{:e}".format(E)
+
+    print('Annual Energy Production:')
+
+    print('E '+Es+str(' J'))
+
+    Ekwh = E/1000/3600
+    Ekwhs = "{:e}".format(Ekwh)
+
+    print('E '+Ekwhs+str(' kWh'))
     
 def main():
 
     global Htower, Dtower, wttower, Drotor, Dmp, Hmp, wtmp, Vwind, Vwater, dVwater
 
-    Drotor = 200
-    Htower = 100
-    Dtower = 10
-    wttower = 0.07
+    Drotor = 220 #m
+    Htower = 150 #m
+    Dtower = 8 #m
+    wttower = 0.07 #m
 
-    Dmp = 12
-    Hmp = 50
-    wtmp = 0.07
+    Dmp = 10 #m
+    Hmp = 140 #m
+    wtmp = 0.07 #m
 
-    Vwind = 10
-    Vwater = 0.8
-    dVwater = 0.1
+    Vwind = 10 #m/s
+    Vwater = 0.8 #m/s
+    dVwater = 0.1 #m/s2
 
     print('tower')
     Fthrust,Mthrust=thrust()
     Fdrag,Mdrag=drag()
     Fweight_tower=weight(Dtower,Htower)
     sigma_tower=stress(Dtower,wttower,Fthrust+Fdrag,Fweight_tower,Mthrust+Mdrag)
+    E=annual()
     print()
+
     print('mp')
     Fweight_tower=weight(Dtower,Htower)
     Fmoris,Mmoris=morison()
     Fweight_mp=weight(Dmp,Hmp)
     sigma_mp=stress(Dmp,wtmp,Fmoris,Fweight_mp,Mmoris)
     print()
+
     print('total')
     Ftot_x=Fthrust+Fdrag+Fmoris
     Ftot_z=Fweight_tower+Fweight_mp
