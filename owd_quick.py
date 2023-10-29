@@ -167,6 +167,12 @@ def annual():
     Ekwhs = "{:e}".format(Ekwh)
 
     print('E '+Ekwhs+str(' kWh'))
+
+    household = 4000 #kwh
+
+    print('E '+str(round(Ekwh/household))+str(' households'))
+
+    return E
     
 def main():
 
