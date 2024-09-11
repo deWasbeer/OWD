@@ -4,6 +4,7 @@
 Created on Wed Sep 11 14:56:49 2024
 
 @author: johan
+@youtube: https://www.youtube.com/live/aWYlqbSqL_s?si=X7QdQ3g0qwi6bWIx
 """
 
 import matplotlib.pyplot as plt
